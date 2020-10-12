@@ -28,6 +28,8 @@ yarn
 npm install
 ```
 
+</details>
+
 ## Usage
 
 ### Start a development server
