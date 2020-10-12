@@ -1,6 +1,8 @@
 # Reddit App
 
-> Reddit's front and post pages in React/Next.js (with ISR)/Tailwind CSS
+> Reddit front and post pages written in React/Next.js (with ISR)/Tailwind CSS
+
+[Demo site](https://e7f0a3.vercel.app/)
 
 ![Screenshot of Reddit App](screenshot.png)
 
