@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* purgecss start ignore */
+
+  html {
+    font-weight: 400;
+    font-size: 10px;
+  }
+
+  body {
+    color: theme('colors.black.1');
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+
+  a {
+    color: theme('colors.blue.default');
+    text-decoration: none;
+
+    &:visited {
+      color: theme('colors.purple.default');
+    }
+  }
+
+  /* purgecss end ignore */
+}

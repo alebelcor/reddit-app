@@ -1,0 +1,17 @@
+{
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
+    // Babel JavaScript
+    "mgmcdermott.vscode-language-babel",
+    // ESLint
+    "dbaeumer.vscode-eslint",
+    // PostCSS Language Support
+    "csstools.postcss",
+    // Prettier - Code formatter
+    "esbenp.prettier-vscode",
+    // stylelint
+    "stylelint.vscode-stylelint",
+    // Tailwind CSS IntelliSense
+    "bradlc.vscode-tailwindcss",
+  ]
+}

@@ -1,0 +1,15 @@
+.rankContainer {
+  margin-top: 11px;
+}
+
+.rank {
+  width: 22px;
+}
+
+.thumbnail {
+  width: 70px;
+
+  &Image {
+    max-height: 70px;
+  }
+}
