@@ -21,6 +21,13 @@ Note: You may also use [npm](https://www.npmjs.com/), instead of Yarn, if you wa
 yarn
 ```
 
+<details>
+    <summary>With npm</summary>
+
+```bash
+npm install
+```
+
 ## Usage
 
 ### Start a development server
