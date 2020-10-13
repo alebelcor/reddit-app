@@ -22,6 +22,7 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
   const [reply, setReply] = useState('');
 
   const inputRef = useRef(null);
+  const replyButtonRef = useRef(null);
 
   const formattedDate = formatDate(created);
   const dateTimeValue = new Date(created).toISOString();
@@ -46,15 +47,25 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
   };
 
   const handleOpenReplyBox = () => {
-    if (reply || isEditing) {
+    if (hasSubmittedReply) {
       return;
+    }
+
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
 
     setIsEditing(true);
   };
 
   const handleReplyChange = (event) => {
-    setReply(event.target.value || '');
+    const newValue = event.target.value;
+
+    if (newValue) {
+      setIsInvalidReply(false);
+    }
+
+    setReply(newValue);
   };
 
   const handleReplySave = () => {
@@ -83,6 +94,8 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
     setReply('');
     setIsEditing(false);
     setIsInvalidReply(false);
+
+    replyButtonRef.current.focus();
   };
 
   useEffect(() => {
@@ -95,7 +108,7 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
   }, []);
 
   useEffect(() => {
-    if (isEditing && inputRef.current) {
+    if (isEditing) {
       inputRef.current.focus();
     }
   }, [isEditing]);
@@ -111,6 +124,7 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
         !hasDarkBg && 'bg-white',
         hasDarkBg && 'bg-gray-1'
       )}
+      data-testid="CommentItem"
     >
       <div className="inline-block mr-4">
         <VotingButtons
@@ -137,7 +151,7 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
           )}
 
           <div className="mr-2 text-gray-5">
-            {points} {points === 1 ? `point` : `points`}
+            {points} {points === 1 || points === -1 ? `point` : `points`}
           </div>
 
           <div className="mr-2 text-gray-5">
@@ -145,13 +159,14 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
           </div>
         </div>
 
-        <div className="my-2 text-2xl">
+        <div className="my-2 text-2xl break-words">
           <Interweave content={body} />
         </div>
 
         <button
           type="button"
           className="font-bold text-gray-5 hover:underline focus:underline lowercase"
+          ref={replyButtonRef}
           onClick={handleOpenReplyBox}
         >
           {Boolean(reply) && hasSubmittedReply ? `Replied` : `Reply`}
@@ -162,7 +177,8 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
             <textarea
               className={`mt-4 mb-2 p-1 border text-2xl ${styles.input}`}
               ref={inputRef}
-              value={reply}
+              defaultValue={reply}
+              data-testid="reply-box"
               onChange={handleReplyChange}
             />
 

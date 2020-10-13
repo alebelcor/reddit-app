@@ -15,7 +15,7 @@ const VotingButtons = ({ currentVote, onDownVote, onUpVote, score, showPoints = 
     <div className={clsx('flex', 'flex-col', showPoints && styles.score)}>
       <button className={clsx(!showPoints && 'mb-1')} type="button" onClick={onUpVote}>
         <UpVoteIcon className="inline" fill={currentVote === 1 ? `#ff8b60` : `#c6c6c6`} />
-        {title ? <span className="sr-only">Upvote post with title: {title}</span> : null}
+        <span className="sr-only">Upvote{title ? ` post with title ${title}` : null}</span>
       </button>
 
       {showPoints ? (
@@ -35,7 +35,7 @@ const VotingButtons = ({ currentVote, onDownVote, onUpVote, score, showPoints = 
 
       <button type="button" onClick={onDownVote}>
         <DownVoteIcon className="inline" fill={currentVote === -1 ? `#9494ff` : `#c6c6c6`} />
-        {title ? <span className="sr-only">Downvote post with title: {title}</span> : null}
+        <span className="sr-only">Downvote{title ? ` post with title ${title}` : null}</span>
       </button>
     </div>
   );
