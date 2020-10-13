@@ -25,6 +25,10 @@ const IndexPage = ({ posts }) => {
     <div className="pl-4">
       <Head>
         <title>all subreddits</title>
+        <meta
+          name="description"
+          content="Today’s top content from hundreds of thousands of Reddit communities."
+        />
       </Head>
 
       <main className="border-l border-gray-3 py-4">
