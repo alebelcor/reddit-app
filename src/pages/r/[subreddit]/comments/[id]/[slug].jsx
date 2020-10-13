@@ -72,21 +72,23 @@ const PostPage = ({ comments, post }) => {
         </title>
       </Head>
 
-      <div className="pt-6 pb-4">
-        <PostItem {...post} />
-      </div>
+      <main>
+        <div className="pt-6 pb-4">
+          <PostItem {...post} />
+        </div>
 
-      {comments?.length > 0 && (
-        <ol>
-          {comments.map((comment) => {
-            return (
-              <li key={comment.id} className="mb-4">
-                <CommentItem {...comment} />
-              </li>
-            );
-          })}
-        </ol>
-      )}
+        {comments?.length > 0 && (
+          <ol>
+            {comments.map((comment) => {
+              return (
+                <li key={comment.id} className="mb-4">
+                  <CommentItem {...comment} />
+                </li>
+              );
+            })}
+          </ol>
+        )}
+      </main>
     </div>
   );
 };

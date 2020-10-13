@@ -27,7 +27,7 @@ const IndexPage = ({ posts }) => {
         <title>all subreddits</title>
       </Head>
 
-      <div className="border-l border-gray-3 py-4">
+      <main className="border-l border-gray-3 py-4">
         <ol className="pl-2">
           {posts.map((post, index) => {
             return (
@@ -37,7 +37,7 @@ const IndexPage = ({ posts }) => {
             );
           })}
         </ol>
-      </div>
+      </main>
     </div>
   );
 };
