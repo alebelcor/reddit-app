@@ -17,6 +17,7 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
 
   const [replies, setReplies] = useState();
   const [isEditing, setIsEditing] = useState(false);
+  const [isInvalidReply, setIsInvalidReply] = useState(false);
   const [hasSubmittedReply, setHasSubmittedReply] = useState(false);
   const [reply, setReply] = useState('');
 
@@ -57,6 +58,11 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
   };
 
   const handleReplySave = () => {
+    if (!reply) {
+      setIsInvalidReply(true);
+      return;
+    }
+
     setReplies((replies) => {
       return [
         ...replies,
@@ -76,6 +82,7 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
   const handleReplyCancel = () => {
     setReply('');
     setIsEditing(false);
+    setIsInvalidReply(false);
   };
 
   useEffect(() => {
@@ -153,11 +160,15 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
         {isEditing && (
           <div>
             <textarea
-              className={`my-4 p-1 border text-2xl ${styles.input}`}
+              className={`mt-4 mb-2 p-1 border text-2xl ${styles.input}`}
               ref={inputRef}
               value={reply}
               onChange={handleReplyChange}
             />
+
+            {isInvalidReply ? (
+              <p className="mb-4 text-base text-red lowercase">We need something here</p>
+            ) : null}
 
             <div>
               <button

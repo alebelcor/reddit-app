@@ -30,6 +30,10 @@ module.exports = {
           6: '#808080',
         },
 
+        red: {
+          default: '#ff0000',
+        },
+
         orange: {
           default: '#ff8b60',
         },
