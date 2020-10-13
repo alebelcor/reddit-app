@@ -61,9 +61,11 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
       return [
         ...replies,
         {
-          id: Date.now() + '',
+          author: null,
           created: Date.now(),
           body: reply,
+          id: Date.now() + '',
+          score: 0,
         },
       ];
     });
@@ -82,10 +84,11 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
 
   useEffect(() => {
     setReplies(comments);
-  }, [comments]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
-    if (isEditing) {
+    if (isEditing && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isEditing]);
@@ -192,13 +195,13 @@ const CommentItem = ({ author, body, created, comments = [], hasDarkBg, score })
 };
 
 CommentItem.propTypes = {
-  author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   created: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
 
+  author: PropTypes.string,
   comments: PropTypes.arrayOf(PropTypes.object),
   hasDarkBg: PropTypes.bool,
-  score: PropTypes.number.isRequired,
 };
 
 export default CommentItem;
