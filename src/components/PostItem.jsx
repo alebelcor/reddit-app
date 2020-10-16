@@ -78,7 +78,12 @@ const PostItem = ({
         {isSelf ? (
           <Link href={url}>
             <a className={`inline-block ${styles.thumbnail}`}>
-              <img className={`mx-auto ${styles.thumbnailImage}`} src={thumbnailUrl} alt="" />
+              <img
+                className={`mx-auto ${styles.thumbnailImage}`}
+                src={thumbnailUrl}
+                alt=""
+                loading="lazy"
+              />
               <span className="sr-only">Open post with title: {title}</span>
             </a>
           </Link>
@@ -89,7 +94,12 @@ const PostItem = ({
             target="_blank"
             href={url}
           >
-            <img className={`mx-auto ${styles.thumbnailImage}`} src={thumbnailUrl} alt="" />
+            <img
+              className={`mx-auto ${styles.thumbnailImage}`}
+              src={thumbnailUrl}
+              alt=""
+              loading="lazy"
+            />
             <span className="sr-only">Open post with title: {title}</span>
           </a>
         )}
