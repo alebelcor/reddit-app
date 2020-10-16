@@ -32,10 +32,7 @@ module.exports = {
     },
   },
 
-  plugins: [
-    // 'prettier',
-    // 'react',
-  ],
+  plugins: [],
 
   // The order of these matters.
   extends: [
