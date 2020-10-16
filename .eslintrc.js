@@ -21,13 +21,13 @@ module.exports = {
   },
 
   settings: {
-    //   'import/resolver': {
-    //     node: {
-    //       paths: ['src'],
-    //     },
-    //   },
+    'import/extensions': ['.js', '.jsx'],
 
-    react: {
+    'import/resolver': {
+      'babel-module': {},
+    },
+
+    'react': {
       version: 'detect',
     },
   },
@@ -38,6 +38,9 @@ module.exports = {
   extends: [
     // INFO: https://eslint.org/docs/rules/
     'eslint:recommended',
+
+    // INFO: https://github.com/benmosher/eslint-plugin-import
+    'plugin:import/recommended',
 
     // INFO: https://github.com/yannickcr/eslint-plugin-react
     'plugin:react/recommended',
