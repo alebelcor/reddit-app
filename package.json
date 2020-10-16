@@ -55,7 +55,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
-    "tailwindcss": "^1.8.13"
+    "tailwindcss": "^1.9.3"
   },
   "engines": {
     "node": ">=12"
