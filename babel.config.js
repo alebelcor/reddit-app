@@ -10,6 +10,7 @@ module.exports = {
       },
     ],
 
+    // INFO: Needed for resolving paths in tests
     [
       'module-resolver',
       {
