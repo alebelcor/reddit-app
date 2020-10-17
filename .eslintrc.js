@@ -65,9 +65,9 @@ module.exports = {
     // https://github.com/prettier/eslint-plugin-prettier
     // https://github.com/prettier/eslint-config-prettier
     // These need to be last so they get a chance to override other configs.
+    'plugin:prettier/recommended',
     'prettier',
     'prettier/react',
-    'plugin:prettier/recommended',
   ],
 
   rules: {
@@ -242,7 +242,7 @@ module.exports = {
     // Disallow common typos
     'react/no-typos': 'error',
 
-    // Disable checking for `React` being in scope when using JSX Next.js imports React for you
+    // Allow missing React when using JSX (Next.js imports it for you)
     'react/react-in-jsx-scope': 'off',
 
     // Require `style` prop value is an object
